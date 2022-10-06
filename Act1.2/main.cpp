@@ -49,6 +49,8 @@ void greedyChangeMaking(int n, int cambio, vector<int> &denom) {
 // Complejidad O(n)
 int changeMaking(vector<int>& denom, int cambio, vector<int>& dp) {
 
+    cout << cambio << endl;
+
     if (cambio < 0) {
         return -1;
     }
@@ -107,8 +109,8 @@ void dynamicChangeMaking(vector<int>& denom, int amount) {
 
     // Imprime lista de N valores correspondientes
     // al número de monedas de cada denominación
-    for (int i = 0; i < resp.size(); i++)
-        cout << resp[i] << endl;
+    // for (int i = 0; i < resp.size(); i++)
+    //     cout << resp[i] << endl;
 
 }
 
@@ -129,7 +131,9 @@ int main() {
 
     cambio = Q - P;
     
+    cout << "Dynamic" << endl;
     dynamicChangeMaking(denom, cambio);
+    cout << "Greedy" << endl;
     greedyChangeMaking(n, cambio, denom);
 
 }
