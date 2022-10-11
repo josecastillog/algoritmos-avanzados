@@ -1,4 +1,14 @@
 /**
+ * Jose M. Castillo A01284149
+ * Omar Lopez A01284179
+ * Natalia Gonzalez A01283809
+ *
+ * Complejidades:
+ * Dijkstra: O(|V|+|E|log|V|)
+ * Floyd-Warshall: O(n^3)
+ **/
+
+/**
  * Ejemplo que implementa Grafos dirigidos ponderados con una
  * Lista de adyacencia y los algoritmos DFS y BFS
  *

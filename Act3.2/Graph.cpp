@@ -1,3 +1,12 @@
+/**
+ * Jose M. Castillo A01284149
+ * Omar Lopez A01284179
+ * Natalia Gonzalez A01283809
+ *
+ * Complejidades:
+ * Dijkstra: O(|V|+|E|log|V|)
+ * Floyd-Warshall: O(n^3)
+ **/
 
 #include "Graph.h"
 
@@ -147,7 +156,7 @@ void Graph::BFS(int v) {
   std::cout << std::endl;
 }
 
-// iPair ==> Integer Pair
+// Tipo par de int
 typedef std::pair<int, int> iPair;
 
 void Graph::Dijkstra(int src) {
@@ -209,10 +218,8 @@ std::vector<std::vector<int>> Graph::listToMatrix() {
     matrix[u][u] = 0;
     for (it = g.begin(); it != g.end(); ++it) {
       std::pair<int, int> par = *it;
-      // std::cout << '\t' << "{" << par.first << "," << par.second << "}";
       matrix[u][par.first] = par.second;
     }
-    // std::cout << std::endl;
   }
   return matrix;
 
@@ -234,7 +241,6 @@ void Graph::printSolution(std::vector<std::vector<int>> &sol) {
 void Graph::FloydWarshall() {
 
   std::vector<std::vector<int>> matAdj = listToMatrix();
-
   std::vector<std::vector<int>> sol(numNodes+1 , std::vector<int> (numNodes+1, INF));
 
   for (int i = 1; i <= numNodes; i++)
@@ -242,14 +248,8 @@ void Graph::FloydWarshall() {
       sol[i][j] = matAdj[i][j];
 
   for (int k = 0; k <= numNodes; k++) {
-    // Pick all vertices as source one by one
     for (int i = 0; i <= numNodes; i++) {
-      // Pick all vertices as destination for the
-      // above picked source
       for (int j = 0; j <= numNodes; j++) {
-        // If vertex k is on the shortest path from
-        // i to j, then update the value of
-        // dist[i][j]
         if (sol[i][j] > (sol[i][k] + sol[k][j])
           && (sol[k][j] != INF
               && sol[i][k] != INF))
